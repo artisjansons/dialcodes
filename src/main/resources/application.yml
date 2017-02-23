@@ -1,0 +1,17 @@
+wiki.url: https://en.wikipedia.org/wiki/List_of_country_calling_codes
+
+---
+spring:
+  profiles: dev
+logging:
+  level:
+    org.springframework.web: debug
+    com.neotech.dialcodes: debug
+
+---
+spring:
+  profiles: production
+logging:
+  level:
+    org.springframework.web: warn
+    com.neotech.dialcodes: warn
