@@ -40,4 +40,7 @@ $ mvn surefire-report:report
 $ mvn site -DgenerateReports=false
 ```
 
+This will generate report only for test results.
+Report avaiable under ${baseDir}/target/site
+
 
