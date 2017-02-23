@@ -34,7 +34,7 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppC
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = DialCodesApplication.class)
 @WebAppConfiguration
-public class CountryControllerTest {
+public class PhoneNumberControllerTest {
 
     private MockMvc mockMvc;
 
@@ -62,7 +62,7 @@ public class CountryControllerTest {
 
         PhoneRequestDto phoneRequestDto = new PhoneRequestDto("+3712345678");
 
-        mockMvc.perform(post("/country/phone")
+        mockMvc.perform(post("/phone-number/lookup")
                 .content(objectMapper.writeValueAsString(phoneRequestDto))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -74,7 +74,7 @@ public class CountryControllerTest {
     public void testGetCountryByInvalidPhoneNumber() throws Exception {
         PhoneRequestDto phoneRequestDto = new PhoneRequestDto("2345678");
 
-        mockMvc.perform(post("/country/phone")
+        mockMvc.perform(post("/phone-number/lookup")
                 .content(objectMapper.writeValueAsString(phoneRequestDto))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest())
@@ -85,7 +85,7 @@ public class CountryControllerTest {
     public void testGetCountryByNonExistingCountryCode() throws Exception {
         PhoneRequestDto phoneRequestDto = new PhoneRequestDto("+10023456789");
 
-        MvcResult result = mockMvc.perform(post("/country/phone")
+        MvcResult result = mockMvc.perform(post("/phone-number/lookup")
                 .content(objectMapper.writeValueAsString(phoneRequestDto))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound()).andReturn();

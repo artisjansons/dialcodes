@@ -14,7 +14,7 @@ $(document).ready(function () {
             submitButton.find("i").removeClass("hidden");
             var data = {phoneNumber: phoneNumberField.val().replace(/\s/g, "")};
             $.ajax({
-                url: "/country/phone",
+                url: "/phone-number/lookup",
                 type: "POST",
                 data: JSON.stringify(data),
                 contentType: "application/json; charset=utf-8",
