@@ -30,4 +30,14 @@ The "production" profile will run with WARN logging level.
 $ -Dspring.profiles.active=dev|production
 ```
 
+### Reporting
+
+For test results report maven surefire plugin used.
+To create report use following commands:
+
+```
+$ mvn surefire-report:report
+$ mvn site -DgenerateReports=false
+```
+
 
